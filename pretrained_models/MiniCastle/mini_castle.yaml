@@ -1,0 +1,20 @@
+trainer:
+    name: MiniCastle
+    min_steps: 48
+    max_steps: 64
+    visualize_output: false
+    device_id: 0
+    use_cuda: true
+    num_hidden_channels: 10
+    epochs: 20000
+    batch_size: 5
+    model_config:
+        normal_std: 0.1
+        update_net_channel_dims: [32, 32]
+    optimizer_config:
+        lr: 0.002
+    dataset_config:
+        nbt_path: structs_dataset/nbts/mini_castle.nbt
+
+defaults:
+  - voxel

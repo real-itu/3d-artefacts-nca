@@ -1,0 +1,24 @@
+trainer:
+    name: Caterpillar
+    min_steps: 48
+    max_steps: 64
+    visualize_output: false
+    device_id: 0
+    use_cuda: true
+    num_hidden_channels: 12
+    epochs: 20000
+    batch_size: 5
+    model_config:
+        normal_std: 0.02
+        update_net_channel_dims: [64, 64]
+    optimizer_config:
+        lr: 0.002
+    dataset_config:
+        nbt_path: structs_dataset/nbts/caterpillar_short.nbt
+        load_entity_config:
+            padding: [[0,0], [0,0], [0,0]]
+            place_block_priority_first: false
+            block_priority: [179]
+
+defaults:
+  - voxel

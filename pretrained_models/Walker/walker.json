@@ -1,0 +1,26 @@
+{
+    "damage": false,
+    "half_precision": false,
+    "model_config": {
+        "normal_std": 0.002,
+        "update_net_channel_dims":[64,64]
+    },
+    "num_channels": 12,
+    "optimizer_config": {
+        "lr": 0.0001
+    },
+    "dataset_config": {
+        "use_random_seed_block":false
+    },
+    "pool_size": 32,
+    "spawn_at_bottom": false,
+    "use_cuda": true,
+    "visualize": false,
+    "device_id": 0,
+    "epochs": 20000,
+    "min_steps": 48,
+    "max_steps": 64,
+    "use_bce_loss":false,
+    "name":"Walker",
+    "block_priority":[179]
+}

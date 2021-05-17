@@ -1,0 +1,23 @@
+trainer:
+    name: Cathedral
+    min_steps: 50
+    max_steps: 51
+    visualize_output: false
+    device_id: 0
+    use_cuda: true
+    num_hidden_channels: 12
+    epochs: 20000
+    batch_size: 5
+    model_config:
+        normal_std: 0.2
+        update_net_channel_dims: [64, 64]
+    optimizer_config:
+        lr: 0.002
+    dataset_config:
+        nbt_path: structs_dataset/village/Extra_cathedral.nbt
+        load_entity_config:
+            padding: [[1,1], [0,1], [1,1]]
+            block_priority: [179]
+
+defaults:
+    - voxel
