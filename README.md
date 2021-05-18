@@ -1,6 +1,7 @@
 Official code for the paper: [Growing 3D Artefacts and Functional Machines with Neural Cellular Automata](https://arxiv.org/abs/2103.08737)
 ==================
 
+### Video of results: https://www.youtube.com/watch?v=-EzztzKoPeo
 
 Requirements
 ----
@@ -26,7 +27,7 @@ Make sure an evocraft-py server is running, either with `test-evocraft-py --inte
 ### Configs
 Each nca is trained on a specific structure w/ hyperparams and configurations defined in yaml config, which we use with [hydra](https://github.com/facebookresearch/hydra) to create the [NCA trainer class](artefact_nca/trainer/voxel_ca_trainer.py).
 
-[Example Config](pretrained_models/PlainBlacksmith/plain_blacksmith.yaml) for generating a "Jungle Temple" Minecraft Structure:
+[Example Config](pretrained_models/PlainBlacksmith/plain_blacksmith.yaml) for generating a "PlainBlacksmith" Minecraft Structure:
 ```
 trainer:
     name: PlainBlacksmith
@@ -51,12 +52,72 @@ defaults:
 ```
 
 
-### 1. Interactive
-See [generation notebook](notebooks/GenerateStructures.ipynb) for ways to load in a pretrained nca and generate a structure
+## Generation and Training
+### See [generation notebook](notebooks/GenerateStructures.ipynb) for ways to load in a pretrained nca and generate a structure in minecraft
 
-See [training notebook](notebooks/Training.ipynb) for ways to train an nca
+### See [training notebook](notebooks/Training.ipynb) for ways to train an nca
 
+## CLI training
+```
+python artefact_nca/train.py config={path to yaml config} trainer.dataset_config.nbt_path={absolute path to nbt file to use}
+```
+Example:
+```
+python artefact_nca/train.py config=pretrained_models/PlainBlacksmith/plain_blacksmith.yaml trainer.dataset_config.nbt_path=/home/shyam/Code/3d-artefacts-nca/artefact_nca/data/structs_dataset/nbts/village/plain_village_blacksmith.nbt
+```
 
+## Spawning in minecraft
+See [generation notebook](notebooks/GenerateStructures.ipynb) for more details
+### Example spawning the oak tree
+1. Load in a trainer
+```
+from artefact_nca.trainer.voxel_ca_trainer import VoxelCATrainer
+
+nbt_path = {path to repo}/artefact_nca/data/structs_dataset/nbts/village/Extra_dark_oak.nbt
+ct = VoxelCATrainer.from_config(
+                    "{path to repo}/pretrained_models/Extra_dark_oak/extra_dark_oak.yaml",
+                    config={
+                        "pretrained_path":"{path to repo}/pretrained_models/Extra_dark_oak/Extra_dark_oak.pt",
+                        "dataset_config":{"nbt_path":nbt_path},
+                        "use_cuda":False
+                    }
+                )
+```
+2. Create `MinecraftClient` to view the growth of the structure in Minecraft at position (-10, 10, 10) (x, y, z)
+```
+from artefact_nca.utils.minecraft import MinecraftClient
+m = MinecraftClient(ct, (-10, 10, 10))
+```
+3. Spawn 100 iterations and display progress every 5 time steps
+```
+m.spawn(100)
+```
+Output should look like this:
+![alt text](tree_growth.gif)
+
+## Structures
+see [data directory](artefact_nca/data/structs_dataset/nbts). To view structures and spawn in minecraft see [generation notebook](notebooks/GenerateStructures.ipynb). An example of spawning and viewing the Tree:
+```
+import matplotlib.pyplot as plt
+from artefact_nca.utils.minecraft import MinecraftClient
+
+base_nbt_path = {path to nbts}
+nbt_path = "{}/village/Extra_dark_oak.nbt".format(base_nbt_path)
+
+ # spawn at coords (50, 10, 10)
+blocks, unique_vals, target, color_dict, unique_val_dict = MinecraftClient.load_entity("Extra_dark_oak", nbt_path=nbt_path, load_coord=(50,10,10))
+
+color_arr = convert_to_color(target, color_dict)
+
+fig = plt.figure()
+ax = fig.gca(projection='3d')
+ax.voxels(color_arr, facecolors=color_arr, edgecolor='k')
+
+plt.show()
+```
+This should spawn and display:
+
+![alt text](pretrained_models/Extra_dark_oak/step_images/Tree_target.jpg) ![alt text](tree.png) 
 
 Authors
 -------
