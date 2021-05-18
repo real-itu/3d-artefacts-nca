@@ -11,7 +11,7 @@ Official code for the paper: [Growing 3D Artefacts and Functional Machines with 
 Requirements
 ----
 - python3.8
-- This package automatically install `test-evocraft-py`, but for further functionality follow installation steps here: https://github.com/real-itu/Evocraft-py
+- This package automatically install `test-evocraft-py` (https://github.com/shyamsn97/test-evocraft-py), but for further functionality follow installation steps here: https://github.com/real-itu/Evocraft-py
 
 Installation
 ---------------
