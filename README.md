@@ -1,12 +1,14 @@
-Official code for the paper: [Growing 3D Artefacts and Functional Machines with Neural Cellular Automata](https://arxiv.org/abs/2103.08737)
-==================
+<div align="center">    
+
+# Growing 3D Artefacts and Functional Machines with Neural Cellular Automata
+[![Paper](https://img.shields.io/badge/paper-arxiv.2007.02686-B31B1B.svg)](https://arxiv.org/abs/2103.08737)
 
 ![alt text](images/caterpillar.gif)
 
 ### Video of more results: https://www.youtube.com/watch?v=-EzztzKoPeo
+</div>
 
 ---
-
 
 Requirements
 ----
