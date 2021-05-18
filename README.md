@@ -127,16 +127,16 @@ This should spawn and display:
 
 Authors
 -------
-Shyam Sudhakaran <shyamsnair@protonmail.com> <https://github.com/shyamsn97>
+Shyam Sudhakaran <shyamsnair@protonmail.com>, <https://github.com/shyamsn97>
 
 Djordje Grbic <djgr@itu.dk>, <https://github.com/djole>
 
-Siyan Li <lisiyansylvia@gmail.com> <https://github.com/sli613>
+Siyan Li <lisiyansylvia@gmail.com>, <https://github.com/sli613>
 
-Adam Katona <ak1774@york.ac.uk> <https://github.com/adam-katona>
+Adam Katona <ak1774@york.ac.uk>, <https://github.com/adam-katona>
 
 Elias Najarro <https://github.com/enajx>
 
 Claire Glanois <https://github.com/claireaoi>
  
-Sebastian Risi <sebr@itu.dk> <https://github.com/sebastianrisi>
+Sebastian Risi <sebr@itu.dk>, <https://github.com/sebastianrisi>
