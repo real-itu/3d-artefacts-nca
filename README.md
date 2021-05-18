@@ -1,7 +1,7 @@
 <div align="center">    
 
 # Growing 3D Artefacts and Functional Machines with Neural Cellular Automata
-[![Paper](https://img.shields.io/badge/paper-arxiv.2007.02686-B31B1B.svg)](https://arxiv.org/abs/2103.08737)
+[![Paper](https://img.shields.io/badge/paper-arxiv.2103.08737-B31B1B.svg)](https://arxiv.org/abs/2103.08737)
 
 ![alt text](images/caterpillar.gif)
 
@@ -142,3 +142,16 @@ Elias Najarro <https://github.com/enajx>
 Claire Glanois <https://github.com/claireaoi>
  
 Sebastian Risi <sebr@itu.dk>, <https://github.com/sebastianrisi>
+
+Citation
+------
+If you use the code for academic or commecial use, please cite the associated paper:
+```
+@inproceedings{Sudhakaran2021,
+   title = {Growing 3D Artefacts and Functional Machines with Neural Cellular Automata}, 
+   author = {Shyam Sudhakaran and Djordje Grbic and Siyan Li and Adam Katona and Elias Najarro and Claire Glanois and Sebastian Risi},
+   booktitle = {2021 Conference on Artificial Life},
+   year = {2021},
+   url = {https://arxiv.org/abs/2103.08737}
+}
+```
