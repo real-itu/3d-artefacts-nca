@@ -93,6 +93,7 @@ m = MinecraftClient(ct, (-10, 10, 10))
 m.spawn(100)
 ```
 Output should look like this:
+
 ![alt text](tree_growth.gif)
 
 ## Structures
