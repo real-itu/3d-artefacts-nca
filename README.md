@@ -1,7 +1,12 @@
 Official code for the paper: [Growing 3D Artefacts and Functional Machines with Neural Cellular Automata](https://arxiv.org/abs/2103.08737)
 ==================
 
-### Video of results: https://www.youtube.com/watch?v=-EzztzKoPeo
+![alt text](images/caterpillar.gif)
+
+### Video of more results: https://www.youtube.com/watch?v=-EzztzKoPeo
+
+---
+
 
 Requirements
 ----
@@ -94,7 +99,7 @@ m.spawn(100)
 ```
 Output should look like this:
 
-![alt text](tree_growth.gif)
+![alt text](images/tree_growth.gif)
 
 ## Structures
 see [data directory](artefact_nca/data/structs_dataset/nbts). To view structures and spawn in minecraft see [generation notebook](notebooks/GenerateStructures.ipynb). An example of spawning and viewing the Tree:
@@ -118,7 +123,7 @@ plt.show()
 ```
 This should spawn and display:
 
-![alt text](pretrained_models/Extra_dark_oak/step_images/Tree_target.jpg) ![alt text](tree.png) 
+![alt text](pretrained_models/Extra_dark_oak/step_images/Tree_target.jpg) ![alt text](images/tree.png) 
 
 Authors
 -------
