@@ -28,11 +28,11 @@ setup(
     packages=find_packages(exclude=('tests',)),
 
     install_requires=[
+        'numpy==1.20.1',
         'nbtlib',
         'torch',
         'hydra-core==1.1.0.rc1',
         'pydantic',
-        'numpy',
         'attrs',
         'loguru',
         'tensorboard==2.4.0',
@@ -44,16 +44,14 @@ setup(
         'protobuf',
         'click',
         'omegaconf',
-        'ipython==7.16.1',
+        'ipython==7.23.1',
         'ipywidgets',
         'ipython-genutils==0.2.0',
         'wcwidth',
         'ptyprocess==0.6.0',
         'pytz',
         'requests',
-        'google-auth',
-        'google-auth-oauthlib',
-        'oauthlib'
+        'torchsummaryX'
     ],
 
     include_package_data=True,
