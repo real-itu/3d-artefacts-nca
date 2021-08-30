@@ -1,0 +1,20 @@
+trainer:
+    name: CustomVoxel
+    min_steps: 32
+    max_steps: 48
+    visualize_output: true
+    device_id: 0
+    use_cuda: true
+    num_hidden_channels: 8
+    epochs: 20000
+    batch_size: 5
+    model_config:
+        normal_std: 0.02
+        update_net_channel_dims: [64]
+    optimizer_config:
+        lr: 0.001
+    dataset_config:
+        pool_size: 32
+
+defaults:
+    - voxel
