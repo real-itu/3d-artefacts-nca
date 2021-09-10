@@ -20,6 +20,9 @@ from artefact_nca.config import load_config
 from artefact_nca.utils.logging import TensorboardLogger
 from artefact_nca.utils.utils import makedirs
 
+def fullname(cls):
+    module = cls.__module__
+    return "{}.{}".format(module, cls.__name__)
 
 @attr.s
 class BaseTorchTrainer(metaclass=abc.ABCMeta):
@@ -91,6 +94,7 @@ class BaseTorchTrainer(metaclass=abc.ABCMeta):
     ) -> BaseTorchTrainer:
         _config = load_config(config_path, config_name=cls._config_name_)
         _config["trainer"]["config"] = _config
+        _config["trainer"]["_target_"] = fullname(cls)
         return instantiate(_config.trainer, _recursive_=False, **config)
 
     def tune(
@@ -241,9 +245,10 @@ class BaseTorchTrainer(metaclass=abc.ABCMeta):
     ):
         checkpoint = torch.load(checkpoint_path, map_location=self.device)
         self.model.load_state_dict(checkpoint["model"])
-        if load_optimizer_and_scheduler:
-            self.optimizer.load_state_dict(checkpoint["optimizer"])
-            self.scheduler.load_state_dict(checkpoint["scheduler"])
+        if "optimizer" in checkpoint and "scheduler" in checkpoint:
+            if load_optimizer_and_scheduler:
+                self.optimizer.load_state_dict(checkpoint["optimizer"])
+                self.scheduler.load_state_dict(checkpoint["scheduler"])
 
     def log_epoch(self, train_metrics, epoch):
         for metric in train_metrics:
