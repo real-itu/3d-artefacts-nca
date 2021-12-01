@@ -43,7 +43,7 @@ setup(
         'test-evocraft-py',
         'protobuf',
         'click',
-        'omegaconf',
+        'omegaconf==2.1.0.rc1',
         'ipython==7.23.1',
         'ipywidgets',
         'ipython-genutils==0.2.0',
