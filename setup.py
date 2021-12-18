@@ -29,7 +29,7 @@ setup(
 
     install_requires=[
         'numpy==1.20.1',
-        'nbtlib',
+        'nbtlib==1.12.0',
         'torch',
         'hydra-core==1.1.0.rc1',
         'pydantic',
